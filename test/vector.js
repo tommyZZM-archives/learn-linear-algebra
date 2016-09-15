@@ -49,15 +49,15 @@ describe("Vector",function () {
         done()
     })
 
-    it("Vector.isLinerIndependent(Vector[])", function (done) {
-        let v1 = Vector.of([1,2]);
-        let v2 = Vector.multiply(3,v1);
-        let v3 = Vector.multiply(-1,v2);
-        let v4 = Vector.of([1,1])
-
-        expect(Vector.isLinerIndependent([v1,v2,v3])).to.be.equal(false);
-        expect(Vector.isLinerIndependent([v1,v4])).to.be.equal(true);
-
-        done()
-    })
+    // it("Vector.isLinerIndependent(Vector[])", function (done) {
+    //     let v1 = Vector.of([1,2]);
+    //     let v2 = Vector.multiply(3,v1);
+    //     let v3 = Vector.multiply(-1,v2);
+    //     let v4 = Vector.of([1,1])
+    //
+    //     expect(Vector.isLinerIndependent([v1,v2,v3])).to.be.equal(false);
+    //     expect(Vector.isLinerIndependent([v1,v4])).to.be.equal(true);
+    //
+    //     done()
+    // })
 })

@@ -8,5 +8,11 @@ declare class Vector {
     get dimensions():number
     get length():number
     add(vector:Vector):Vector
-    multiply(number:number):Vector
+    times(number:number):Vector
+}
+
+declare class Matrix {
+    constructor(rows:number[][])
+    get rowDimensions():number
+    get colDimensions():number
 }

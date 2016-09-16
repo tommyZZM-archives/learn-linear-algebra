@@ -39,10 +39,10 @@ describe("Vector",function () {
         done()
     })
 
-    it("Vector.multiply(times,vector)", function (done) {
+    it("Vector.times(times,vector)", function (done) {
 
         let v1 = Vector.of([1,2]);
-        let v2 = Vector.multiply(3,v1);
+        let v2 = Vector.times(3,v1);
 
         expect(Vector.equals(v2,Vector.of([3,6]))).to.be.equal(true);
 

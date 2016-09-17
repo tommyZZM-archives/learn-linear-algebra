@@ -96,4 +96,34 @@ describe("Matrix",function () {
         done()
     });
 
+    it("Matrix.multiply", function (done) {
+
+        let m1 = Matrix.of([
+            [1,2],
+            [3,4]
+        ])
+
+        let m2 = Matrix.of([
+            [5,6,7],
+            [8,9,10]
+        ])
+
+        /**
+         *       [5,            6,             7 ]
+         *       [8,            9,             10 ]
+         * [1,2] 5*1+8*2 (21),  6*1+9*2 (24),  7*1+10*2 (27)
+         * [3,4] 5*3+8*4 (47),  6*3+9*4 (54),  7*3+10*4 (61)
+         */
+        let m1_x_m2 = Matrix.multiply(m1,m2);
+
+        expect(m1_x_m2.rowDimensions).to.be.equal(2);
+        expect(m1_x_m2.colDimensions).to.be.equal(3);
+        expect(R.equals(m1_x_m2.numbers,[
+            21, 24, 27,
+            47, 54, 61
+        ])).to.be.equal(true);
+
+        done();
+    })
+
 })

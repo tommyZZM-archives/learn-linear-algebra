@@ -15,4 +15,6 @@ declare class Matrix {
     constructor(rows:number[][])
     get rowDimensions():number
     get colDimensions():number
+    get rows():number[][]
+    get cols():number[][]
 }

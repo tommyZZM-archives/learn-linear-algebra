@@ -9,5 +9,5 @@ const allEqual = require("./allEqual");
 
 const dropLastWhileIsNil = R.dropLastWhile(R.isNil)
 
-exports.zipWith = (fn,a,b) => zipWith(dropLastWhileIsNil([fn,a,b]));
+exports.zipWith = (fn,init,a,b) => zipWith(dropLastWhileIsNil([fn,init,a,b]));
 exports.allEqual = list => allEqual(list);

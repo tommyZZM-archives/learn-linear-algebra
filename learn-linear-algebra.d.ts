@@ -13,8 +13,8 @@ declare class Vector {
 
 declare class Matrix {
     constructor(rows:number[][])
-    get rowDimensions():number
-    get colDimensions():number
-    get rows():number[][]
-    get cols():number[][]
+    get rows():number
+    get cols():number
+    get rowsGroup():number[][]
+    get colsGroup():number[][]
 }

@@ -8,16 +8,17 @@ const Matrix = require("../lib/Matrix");
 const Vector = require("../lib/Vector");
 
 describe("Matrix",function () {
+
     it("Matrix.of((number[])[])",function (done) {
 
         let m = Matrix.of([
-            [1,0,0],
-            [0,1,0],
-            [0,0,1]
+            [1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1]
         ]);
 
-        expect(m.rowDimensions).to.be.equal(3);
-        expect(m.colDimensions).to.be.equal(3);
+        expect(m.rows).to.be.equal(3);
+        expect(m.cols).to.be.equal(3);
         expect(R.equals(m.numbers,[1,0,0,0,1,0,0,0,1])).to.be.equal(true);
 
         done()
@@ -43,8 +44,8 @@ describe("Matrix",function () {
 
         let m = Matrix.from([v1,v2,v3]);
 
-        expect(m.rowDimensions).to.be.equal(3);
-        expect(m.colDimensions).to.be.equal(3);
+        expect(m.rows).to.be.equal(3);
+        expect(m.cols).to.be.equal(3);
         expect(R.equals(m.numbers,[1,3,0,2,2,0,3,1,1])).to.be.equal(true);
 
         done();
@@ -52,21 +53,21 @@ describe("Matrix",function () {
 
     it("Matrix.add", function (done) {
         let m1 = Matrix.of([
-            [1,0,0],
-            [0,1,0],
-            [0,0,1]
+            [1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1]
         ]);
 
         let m2 = Matrix.of([
-            [2,0,0],
-            [0,2,0],
-            [0,-2,-1]
+            [2, 0, 0],
+            [0, 2, 0],
+            [0, -2, -1]
         ]);
 
         let m3 = Matrix.add(m1,m2)
 
-        expect(m3.rowDimensions).to.be.equal(3);
-        expect(m3.colDimensions).to.be.equal(3);
+        expect(m3.rows).to.be.equal(3);
+        expect(m3.cols).to.be.equal(3);
         expect(R.equals(m3.numbers,[
             3, 0, 0,
             0, 3, 0,
@@ -85,8 +86,8 @@ describe("Matrix",function () {
 
         let m2 = Matrix.times(3,m1);
 
-        expect(m2.rowDimensions).to.be.equal(3);
-        expect(m2.colDimensions).to.be.equal(3);
+        expect(m2.rows).to.be.equal(3);
+        expect(m2.cols).to.be.equal(3);
         expect(R.equals(m2.numbers,[
             3, 0, 0,
             0, 3, 0,
@@ -99,13 +100,13 @@ describe("Matrix",function () {
     it("Matrix.multiply", function (done) {
 
         let m1 = Matrix.of([
-            [1,2],
-            [3,4]
+            [1, 2],
+            [3, 4]
         ])
 
         let m2 = Matrix.of([
-            [5,6,7],
-            [8,9,10]
+            [5, 6, 7],
+            [8, 9, 10]
         ])
 
         /**
@@ -116,12 +117,41 @@ describe("Matrix",function () {
          */
         let m1_x_m2 = Matrix.multiply(m1,m2);
 
-        expect(m1_x_m2.rowDimensions).to.be.equal(2);
-        expect(m1_x_m2.colDimensions).to.be.equal(3);
+        expect(m1_x_m2.rows).to.be.equal(2);
+        expect(m1_x_m2.cols).to.be.equal(3);
         expect(R.equals(m1_x_m2.numbers,[
             21, 24, 27,
             47, 54, 61
         ])).to.be.equal(true);
+
+        done();
+    })
+    
+    it("Matrix.rref", function (done) {
+
+        expect(R.equals(
+            Matrix.rref(Matrix.of([
+                [1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9]
+            ])).rowsGroup, [
+                [1, 0, -1],
+                [0, 1, 2],
+                [0, 0, 0]
+            ]
+        )).to.be.equal(true)
+
+        expect(R.equals(
+            Matrix.rref(Matrix.of([
+                [2, 1, -1, 8],
+                [-3, -1, 2, -11],
+                [-2, 1, 2, -3]
+            ])).rowsGroup, [
+                [1, 0, 0, 2],
+                [0, 1, 0, 3],
+                [0, 0, 1, -1]
+            ]
+        )).to.be.equal(true);
 
         done();
     })

@@ -7,6 +7,7 @@ const expect = require("chai").expect
 const Vector = require("../lib/Vector")
 
 describe("Vector",function () {
+
     it("Vector.of(number[])",function (done) {
         let v1 = Vector.of([1,1]);
         expect(/^1\.414/.test(v1.length)).to.be.equal(true);

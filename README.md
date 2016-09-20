@@ -7,3 +7,4 @@
 - [alawatthe/MathLib](https://github.com/alawatthe/MathLib)
 - [substack/rref](https://github.com/substack/rref)
 - [josdejong/mathjs](https://github.com/josdejong/mathjs)
+- [toji/gl-matrix](https://github.com/toji/gl-matrix)

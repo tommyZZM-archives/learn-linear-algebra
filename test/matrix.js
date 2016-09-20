@@ -134,7 +134,7 @@ describe("Matrix",function () {
                 [1, 2, 3],
                 [4, 5, 6],
                 [7, 8, 9]
-            ])).rowsGroup, [
+            ])).toArray(), [
                 [1, 0, -1],
                 [0, 1, 2],
                 [0, 0, 0]
@@ -146,12 +146,29 @@ describe("Matrix",function () {
                 [2, 1, -1, 8],
                 [-3, -1, 2, -11],
                 [-2, 1, 2, -3]
-            ])).rowsGroup, [
+            ])).toArray(), [
                 [1, 0, 0, 2],
                 [0, 1, 0, 3],
                 [0, 0, 1, -1]
             ]
         )).to.be.equal(true);
+
+        done();
+    })
+
+    it("Matrix.rank", function (done) {
+
+        expect(Matrix.rank(Matrix.of([
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ]))).to.be.equal(2);
+
+        expect(Matrix.rank(Matrix.of([
+            [1, 0, 0],
+            [0, 1, 0],
+            [0, 0, 1]
+        ]))).to.be.equal(3);
 
         done();
     })

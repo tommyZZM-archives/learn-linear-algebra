@@ -9,7 +9,7 @@ const Vector = require("../lib/Vector");
 
 describe("Matrix",function () {
 
-    it("Matrix.of((number[])[])",function (done) {
+    it("Matrix.of(number[][])",function (done) {
 
         let m = Matrix.of([
             [1, 0, 0],
@@ -51,7 +51,7 @@ describe("Matrix",function () {
         done();
     });
 
-    it("Matrix.add", function (done) {
+    it("Matrix.add(a, b)", function (done) {
         let m1 = Matrix.of([
             [1, 0, 0],
             [0, 1, 0],
@@ -77,7 +77,7 @@ describe("Matrix",function () {
         done()
     });
 
-    it("Matrix.times", function (done) {
+    it("Matrix.times(times, a)", function (done) {
         let m1 = Matrix.of([
             [1, 0, 0],
             [0, 1, 0],
@@ -97,7 +97,7 @@ describe("Matrix",function () {
         done()
     });
 
-    it("Matrix.multiply", function (done) {
+    it("Matrix.multiply(a, b)", function (done) {
 
         let m1 = Matrix.of([
             [1, 2],
@@ -127,7 +127,7 @@ describe("Matrix",function () {
         done();
     })
     
-    it("Matrix.rref", function (done) {
+    it("Matrix.rref(m)", function (done) {
 
         expect(R.equals(
             Matrix.rref(Matrix.of([
@@ -156,7 +156,7 @@ describe("Matrix",function () {
         done();
     })
 
-    it("Matrix.rank", function (done) {
+    it("Matrix.rank(m)", function (done) {
 
         expect(Matrix.rank(Matrix.of([
             [1, 2, 3],
@@ -169,6 +169,21 @@ describe("Matrix",function () {
             [0, 1, 0],
             [0, 0, 1]
         ]))).to.be.equal(3);
+
+        done();
+    })
+
+    it("Matrix.transpose(m)", function (done) {
+
+        expect(R.equals(Matrix.transpose(Matrix.of([
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ])).toArray(), [
+            [1, 4, 7],
+            [2, 5, 8],
+            [3, 6, 9]
+        ])).to.be.equal(true)
 
         done();
     })

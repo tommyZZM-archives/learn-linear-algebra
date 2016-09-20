@@ -3,3 +3,7 @@
 - [Khan Academy | Solving a system of 3 equations and 4 variables using matrix row-echelon form](https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/matrices-elimination/v/matrices-reduced-row-echelon-form-1)
 - [Transforming Matrix to The Reduced Row Echelon Form](http://www.math.odu.edu/~bogacki/cgi-bin/lat.cgi)
 
+# Related 
+- [alawatthe/MathLib](https://github.com/alawatthe/MathLib)
+- [substack/rref](https://github.com/substack/rref)
+- [josdejong/mathjs](https://github.com/josdejong/mathjs)

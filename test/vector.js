@@ -50,6 +50,17 @@ describe("Vector",function () {
         done()
     })
 
+    it("Vector.dot(a, b)", function (done) {
+
+        let v1 = Vector.of([1.2,2]);
+        let v2 = Vector.of([3,4]);
+
+        expect(Vector.dot(v1, v2))
+            .to.be.equal(1.2*3+2*4)
+
+        done()
+    })
+
     // it("Vector.isLinerIndependent(Vector[])", function (done) {
     //     let v1 = Vector.of([1,2]);
     //     let v2 = Vector.multiply(3,v1);
